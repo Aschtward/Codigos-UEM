@@ -1,0 +1,4 @@
+O arquivo main foi fornecido pela Professora Valéria Delisandra Feltrim, o projeto de Organização e recuperação de dados tinha como
+objetivo transformar um arquivo inicial de formato txt, onde os regristros tinham tamanhos variáveis e eram dividos por |
+em registros de tamanho fixo, 64 bytes, além disso foi usado uma pilha para alocar os espaços disponiveis, após as remoções,
+reutilizando a memoria.
