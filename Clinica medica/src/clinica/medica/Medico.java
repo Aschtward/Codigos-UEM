@@ -5,6 +5,8 @@
  */
 package clinica.medica;
 
+import java.time.LocalDateTime;
+
 /**
  *
  * @author guest-ey3e4n
@@ -12,17 +14,35 @@ package clinica.medica;
 public class Medico extends Pessoa{
     
     private String crm;
-    private String especialidade;
+    private int especialidade;
+    private LocalDateTime dataContratação;
     
-    public void Medico(String crm, String especialidade, String nome, String cpf, String endereco, String telefone){
+    public void Medico(String crm,String nome, String cpf, String endereco, String telefone){
         cadastro(nome, cpf, endereco, telefone);
         this.setCrm(crm);
-        this.setEspecialidade(especialidade);
+        this.setDataContratação(LocalDateTime.now());
+        
     }
     
-    @Override
+    public int getEspecialidade() {
+		return especialidade;
+	}
+
+	public void setEspecialidade(int especialidade) {
+		this.especialidade = especialidade;
+	}
+
+	public LocalDateTime getDataContratação() {
+		return dataContratação;
+	}
+
+	public void setDataContratação(LocalDateTime localDateTime) {
+		this.dataContratação = localDateTime;
+	}
+
+	@Override
     public String toString() {
-        return this.getNome() +',' + this.getCpf() + ',' + this.getEndereco() + ',' + this.getTelefone() + ',' + getEspecialidade() + ',' + getCrm() + ',';
+        return this.getNome() +',' + this.getCpf() + ',' + this.getEndereco() + ',' + getCrm() + ',' + getDataContratação();
     }
 
     public String getCrm() {
@@ -33,12 +53,5 @@ public class Medico extends Pessoa{
         this.crm = crm;
     }
 
-    public String getEspecialidade() {
-        return especialidade;
-    }
-
-    public void setEspecialidade(String especialidade) {
-        this.especialidade = especialidade;
-    }
         
 }

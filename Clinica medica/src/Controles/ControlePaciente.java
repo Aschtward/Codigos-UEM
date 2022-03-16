@@ -3,32 +3,36 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package clinica.medica;
+package Controles;
+
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import clinica.medica.Paciente;
+import telas.TelaPaciente;
+
 /**
  *
- * @author guest-ey3e4n
+ * @author guest-4sdrfw
  */
-public class ControleMedico {
+public class ControlePaciente {
     
-    Medico pc;
+    Paciente pc;
     FileWriter fw;
     BufferedWriter bw;
 
-    public ControleMedico() {
-        pc = new Medico();
+    public ControlePaciente() {
+        pc = new Paciente();
     }
 
 
     
     private void abrirArquivo() throws IOException{
         
-        File aq = new File("/tmp/guest-ey3e4n/NetBeansProjects/med");
+        File aq = new File("/tmp/guest-ey3e4n/NetBeansProjects/arq");
         fw = new FileWriter(aq, true);
         bw = new BufferedWriter(fw);
         bw.write(pc.toString());
@@ -36,14 +40,15 @@ public class ControleMedico {
 
     }
     
-    public void gravarArquivo(TelaMedico dadoMedico) throws IOException{
+    public void gravarArquivo(TelaPaciente dadoPaciente) throws IOException{
         
-        pc.Medico(dadoMedico.getCrm(),
-                dadoMedico.getEspecialidade(),
-                dadoMedico.getNome(), 
-                dadoMedico.getCpf(), 
-                dadoMedico.getEndereco(), 
-                dadoMedico.getTelefone());
+        pc.Paciente(dadoPaciente.getPeso(), 
+                dadoPaciente.getAltura(), 
+                dadoPaciente.getIdade(),
+                dadoPaciente.getNome(), 
+                dadoPaciente.getCpf(), 
+                dadoPaciente.getEndereco(), 
+                dadoPaciente.getTelefone());
         abrirArquivo();
     }
     

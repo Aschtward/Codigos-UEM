@@ -7,6 +7,8 @@ package clinica.medica;
 
 import java.io.IOException;
 
+import telas.TelaMain;
+
 /**
  *
  * @author guest-4sdrfw

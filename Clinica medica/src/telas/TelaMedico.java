@@ -3,12 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package clinica.medica;
+package telas;
 
 
-import java.util.Calendar;
+import java.io.IOException;
 import java.util.Date;
 import java.util.Scanner;
+
+import Controles.ControleEspecialidade;
+import Registros.Registro;
 
 /**
  *
@@ -41,6 +44,21 @@ public final class TelaMedico {
         this.setCrm(sc.nextLine());
         System.out.println("Digite a Especialidade");
         this.setEspecialidade(sc.nextLine());
+        
+        System.out.println("Deseja informar especialidade 1 - Sim, 2 -Não");
+        int op = sc.nextInt();
+        if(op == 1) {
+    		ControleEspecialidade ce = new ControleEspecialidade();
+    		Registro reg = new Registro();
+    		try {
+				reg.imprimirRegistro(ce.lerArquivo("",""));
+				System.out.println("Digite o id da especialidade do medico");
+				this.setEspecialidade(sc.nextLine());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+        }
+        sc.close();
         
     }
     
