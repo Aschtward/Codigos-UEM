@@ -6,12 +6,13 @@
 package Controles;
 
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import clinica.medica.Paciente;
+import entitys.Paciente;
 import telas.TelaPaciente;
 
 /**
@@ -23,26 +24,51 @@ public class ControlePaciente {
     Paciente pc;
     FileWriter fw;
     BufferedWriter bw;
-
-    public ControlePaciente() {
-        pc = new Paciente();
+    BufferedReader bf;
+    FileReader fr;
+    
+    public void lerArquivo() throws IOException{
+    	
+    	String[] aux = null;
+    	fr = new FileReader("pacientes.txt");
+    	bf = new BufferedReader(fr);
+    	String line = "";
+    	while((line = bf.readLine()) != null) {
+    		aux = line.split(";");
+    		System.out.println(aux[0] + aux[1]);
+    	}
+    	fr.close();
+    	bf.close();
     }
 
-
-    
     private void abrirArquivo() throws IOException{
-        
-        File aq = new File("/tmp/guest-ey3e4n/NetBeansProjects/arq");
-        fw = new FileWriter(aq, true);
-        bw = new BufferedWriter(fw);
-        bw.write(pc.toString());
-        fecharArquivo();
+		BufferedWriter write = null;
+		String[] val1 = {"Nome","CPF","Endereco","Telefone","Peso","Altura","Idade"};
+		String[] val2 = {pc.getNome(), pc.getCpf(),pc.getEndereco(),pc.getTelefone(),"" + pc.getPeso(),"" +pc.getAltura(),"" +pc.getIdade()};
+		try {
+			write = new BufferedWriter(new FileWriter("pacientes.txt",true));
+		}catch(IOException e) {}
+		for(int i = 0; i < val1.length; i++) {
+			String current = val1[i];
+			current += ";";
+			current += val2[i];
+			try {
+				write.write(current);
+				if(i < val1.length) {
+					write.newLine();
+				}
+			}catch(IOException e) {}
+		}
+		try {
+			write.flush();
+			write.close();
+		}catch(IOException e) {}
 
     }
     
     public void gravarArquivo(TelaPaciente dadoPaciente) throws IOException{
         
-        pc.Paciente(dadoPaciente.getPeso(), 
+        pc = new Paciente(dadoPaciente.getPeso(), 
                 dadoPaciente.getAltura(), 
                 dadoPaciente.getIdade(),
                 dadoPaciente.getNome(), 
@@ -51,9 +77,5 @@ public class ControlePaciente {
                 dadoPaciente.getTelefone());
         abrirArquivo();
     }
-    
-    private void fecharArquivo() throws IOException{
-        bw.close();
-        fw.close();
-    }
+
 }

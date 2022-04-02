@@ -8,10 +8,8 @@ package telas;
 
 import java.io.IOException;
 import java.util.Date;
-import java.util.Scanner;
-
 import Controles.ControleEspecialidade;
-import Registros.Registro;
+import entitys.InputClass;
 
 /**
  *
@@ -24,42 +22,35 @@ public final class TelaMedico {
     private String endereco;
     private String telefone;
     private String crm;
-    private String especialidade;
+    private int especialidade;
     private Date dataDeContratacao;
 
 
     public TelaMedico() {
-        
-        Scanner sc = new Scanner(System.in);
-        
+    	InputClass.in.nextLine();
         System.out.println("Digite o nome");
-        this.setNome(sc.nextLine());
+        this.setNome(InputClass.in.nextLine());
         System.out.println("Digite o CPF");
-        this.setCpf(sc.nextLine());
+        this.setCpf(InputClass.in.nextLine());
         System.out.println("Digite o telefone");
-        this.setTelefone(sc.nextLine());
+        this.setTelefone(InputClass.in.nextLine());
         System.out.println("Digite o Endereco");
-        this.setEndereco(sc.nextLine());
+        this.setEndereco(InputClass.in.nextLine());
         System.out.println("Digite o crm");
-        this.setCrm(sc.nextLine());
-        System.out.println("Digite a Especialidade");
-        this.setEspecialidade(sc.nextLine());
+        this.setCrm(InputClass.in.nextLine());
         
         System.out.println("Deseja informar especialidade 1 - Sim, 2 -Não");
-        int op = sc.nextInt();
+        int op = InputClass.in.nextInt();
         if(op == 1) {
     		ControleEspecialidade ce = new ControleEspecialidade();
-    		Registro reg = new Registro();
     		try {
-				reg.imprimirRegistro(ce.lerArquivo("",""));
+				ce.lerArquivo();
 				System.out.println("Digite o id da especialidade do medico");
-				this.setEspecialidade(sc.nextLine());
+				this.setEspecialidade(InputClass.in.nextInt());
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
         }
-        sc.close();
-        
     }
     
     public Date getDataDeContratacao() {
@@ -78,11 +69,11 @@ public final class TelaMedico {
         this.crm = crm;
     }
 
-    public String getEspecialidade() {
+    public int getEspecialidade() {
         return especialidade;
     }
 
-    public void setEspecialidade(String especialidade) {
+    public void setEspecialidade(int especialidade) {
         this.especialidade = especialidade;
     }
 

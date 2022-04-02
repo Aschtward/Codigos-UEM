@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package clinica.medica;
+package entitys;
 
 import java.io.IOException;
 
@@ -20,11 +20,8 @@ public class ClinicaMedica {
      * @throws java.io.IOException
      */
     public static void main(String[] args) throws IOException {
-        
+        	
             TelaMain tl = new TelaMain();
-      
-        //paciente = controlePaciente.pc;
-        
     }
     
 }

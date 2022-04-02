@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package clinica.medica;
+package entitys;
 
 /**
  *
@@ -15,7 +15,7 @@ public class Paciente extends Pessoa{
     private float altura;
     private int idade;
 
-    public void Paciente(float peso, float altura, int idade, String nome, String cpf, String endereco, String telefone) {
+    public Paciente(float peso, float altura, int idade, String nome, String cpf, String endereco, String telefone) {
         this.peso = peso;
         this.altura = altura;
         this.idade = idade;
@@ -48,7 +48,7 @@ public class Paciente extends Pessoa{
 
     @Override
     public String toString() {
-        return this.getNome() + ',' + peso + ',' + altura + ',' + idade + ',' + this.getCpf() + ',' + this.getEndereco() + ',' + this.getTelefone() + ',';
+        return this.getNome() + ';' + "Peso;" + peso +  "Altura;" + altura + ';' + "Idade;" + idade + ';' + "CPF;" + this.getCpf() + ';' + "Endereco;" + this.getEndereco() + ';' + "telefone;" + this.getTelefone() + ';';
     }
     
     

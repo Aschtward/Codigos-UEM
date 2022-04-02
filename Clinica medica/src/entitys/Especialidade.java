@@ -1,11 +1,11 @@
-package clinica.medica;
+package entitys;
 
 public class Especialidade {
 	
 	private int id;
 	private String nome;
 	
-	public void Especialidade(int id, String nome) {
+	public Especialidade(int id, String nome) {
 		this.setId(id);
 		this.setNome(nome);
 	}

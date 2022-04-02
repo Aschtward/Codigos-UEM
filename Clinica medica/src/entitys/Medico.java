@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package clinica.medica;
+package entitys;
 
 import java.time.LocalDateTime;
 
@@ -15,12 +15,12 @@ public class Medico extends Pessoa{
     
     private String crm;
     private int especialidade;
-    private LocalDateTime dataContratação;
+    private LocalDateTime dataContratacao;
     
-    public void Medico(String crm,String nome, String cpf, String endereco, String telefone){
+    public Medico(String crm,String nome, String cpf, String endereco, String telefone){
         cadastro(nome, cpf, endereco, telefone);
         this.setCrm(crm);
-        this.setDataContratação(LocalDateTime.now());
+        this.setDataContratacao(LocalDateTime.now());
         
     }
     
@@ -32,17 +32,17 @@ public class Medico extends Pessoa{
 		this.especialidade = especialidade;
 	}
 
-	public LocalDateTime getDataContratação() {
-		return dataContratação;
+	public LocalDateTime getDataContratacao() {
+		return dataContratacao;
 	}
 
-	public void setDataContratação(LocalDateTime localDateTime) {
-		this.dataContratação = localDateTime;
+	public void setDataContratacao(LocalDateTime localDateTime) {
+		this.dataContratacao = localDateTime;
 	}
 
 	@Override
     public String toString() {
-        return this.getNome() +',' + this.getCpf() + ',' + this.getEndereco() + ',' + getCrm() + ',' + getDataContratação();
+        return this.getNome() +',' + this.getCpf() + ',' + this.getEndereco() + ',' + getCrm() + ',' + getDataContratacao();
     }
 
     public String getCrm() {

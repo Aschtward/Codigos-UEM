@@ -1,6 +1,7 @@
 package telas;
 
-import java.util.Scanner;
+
+import entitys.InputClass;
 
 public class TelaEspecialidade {
 	
@@ -9,13 +10,11 @@ public class TelaEspecialidade {
 	
     public TelaEspecialidade() {
         
-        Scanner sc = new Scanner(System.in);
-        
+    	InputClass.in.nextLine();
         System.out.println("Digite o nome");
-        this.setNome(sc.nextLine());
+        this.setNome(InputClass.in.nextLine());
         System.out.println("Digite o ID");
-        this.setId(sc.nextInt());
-        sc.close();
+        this.setId(InputClass.in.nextInt());
         
     }
 	public int getId() {

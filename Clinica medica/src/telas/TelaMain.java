@@ -6,9 +6,8 @@
 package telas;
 
 import java.io.IOException;
-import java.util.Scanner;
-
 import Controles.*;
+import entitys.InputClass;
 
 /**
  *
@@ -21,32 +20,47 @@ public class TelaMain {
     
     public TelaMain() throws IOException{
         
-        Scanner sc = new Scanner(System.in);
         
-        while(op != 5){
+        op = 0;
+        while(op != 8) {
             System.out.println("Digite o que deseja fazer:");
             System.out.println("[1]-Cadastrar pacientes");
             System.out.println("[2]-Cadastrar medicos");
             System.out.println("[3]-Cadastrar especialidades");
-            System.out.println("[4]-Registros");
-            System.out.println("[5]-Sair");
-            op = sc.nextInt();
+            System.out.println("[5]-Receita");
+            System.out.println("[6]-Consulta");
+            System.out.println("[7]-Cadrastar Medicamento");
+            System.out.println("[8]-Sair");
+            op = InputClass.in.nextInt();
             if(op == 1){
-                        TelaPaciente telaPaciente = new TelaPaciente();
-                        ControlePaciente controlePaciente = new ControlePaciente();
-                        controlePaciente.gravarArquivo(telaPaciente);
+                TelaPaciente telaPaciente = new TelaPaciente();
+                ControlePaciente controlePaciente = new ControlePaciente();
+                controlePaciente.gravarArquivo(telaPaciente);
+                InputClass.in.nextLine();
             }else if(op == 2){
-                        TelaMedico telaMedico = new TelaMedico();
-                        ControleMedico controleMedico = new ControleMedico();
-                        controleMedico.gravarArquivo(telaMedico);
+                TelaMedico telaMedico = new TelaMedico();
+                ControleMedico controleMedico = new ControleMedico();
+                controleMedico.gravarArquivo(telaMedico);
+                InputClass.in.nextLine();
             }else if(op == 3) {
-            			TelaEspecialidade telaEspecialidade = new TelaEspecialidade();
-            			ControleEspecialidade controleEspecialidade = new ControleEspecialidade();
-            			controleEspecialidade.gravarArquivo(telaEspecialidade,path,nome);
+            	TelaEspecialidade telaEspecialidade = new TelaEspecialidade();
+       			ControleEspecialidade controleEspecialidade = new ControleEspecialidade();
+      			controleEspecialidade.gravarArquivo(telaEspecialidade,path,nome);
+           		InputClass.in.nextLine();
             }else if(op == 4) {
-            			TelaRegistro telaRegistro = new TelaRegistro();
+            	TelaRegistro telaRegistro = new TelaRegistro();
+            }else if(op == 5) {
+            	TelaReceita tr = new TelaReceita();
+            }else if(op == 6) {
+    			TelaAgenda tA = new TelaAgenda();
+    			ControleAgenda controleAgenda = new ControleAgenda();
+    			controleAgenda.gravarArquivo(tA);
+            }else if(op == 7) {
+            	TelaMedicamento telaMedicamento = new TelaMedicamento();
+            	ControleMedicamento controleMedicamento = new ControleMedicamento();
+            	controleMedicamento.novoMedicamento(telaMedicamento);
+            	InputClass.in.nextLine();
             }
         }
-        sc.close();
     }
 }

@@ -2,9 +2,8 @@ package telas;
 
 import java.io.IOException;
 import java.util.Scanner;
-
 import Controles.ControleEspecialidade;
-import Registros.Registro;
+
 
 public class TelaRegistro {
 	
@@ -12,7 +11,6 @@ public class TelaRegistro {
         
         Scanner sc = new Scanner(System.in);
         int op;
-        Registro reg = new Registro();
         
         do {
         	System.out.println("[1]-Exibir registros de medico");
@@ -27,7 +25,7 @@ public class TelaRegistro {
         	}else if(op == 3) {
         		//Registro de especialidades
         		ControleEspecialidade ce = new ControleEspecialidade();
-        		reg.imprimirRegistro(ce.lerArquivo("",""));
+        		ce.lerArquivo();
         	}
         }while(op != 4);
         sc.close();

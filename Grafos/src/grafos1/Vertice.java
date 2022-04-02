@@ -8,6 +8,7 @@ public class Vertice {
     List<Vertice> adj;
     int grauSaida;
     Vertice pai;
+    int d;
     int cor;
     int ini;
     int fim;

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package clinica.medica;
+package entitys;
 
 /**
  *
@@ -32,7 +32,7 @@ public class Pessoa {
         this.idPessoa = idPessoa;
     }
 
-    protected String getNome() {
+    public String getNome() {
         return nome;
     }
 
@@ -40,27 +40,27 @@ public class Pessoa {
         this.nome = nome;
     }
 
-    protected String getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    protected void setCpf(String cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
-    protected String getEndereco() {
+    public String getEndereco() {
         return endereco;
     }
 
-    protected void setEndereco(String endereco) {
+    public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
 
-    protected String getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    protected void setTelefone(String telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
     

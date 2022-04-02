@@ -5,7 +5,8 @@
  */
 package telas;
 
-import java.util.Scanner;
+import entitys.InputClass;
+
 
 /**
  *
@@ -22,24 +23,21 @@ public class TelaPaciente {
     private String endereco;
 
     public TelaPaciente() {
-        
-        Scanner sc = new Scanner(System.in);
-        
+        InputClass.in.nextLine();
         System.out.println("Digite o nome");
-        this.setNome(sc.nextLine());
+        this.setNome(InputClass.in.nextLine());
         System.out.println("Digite o CPF");
-        this.setCpf(sc.nextLine());
+        this.setCpf(InputClass.in.nextLine());
         System.out.println("Digite o telefone");
-        this.setTelefone(sc.nextLine());
+        this.setTelefone(InputClass.in.nextLine());
         System.out.println("Digite o peso");
-        this.setPeso(sc.nextFloat());
+        this.setPeso(InputClass.in.nextFloat());
         System.out.println("Digite o Altura");
-        this.setAltura(sc.nextFloat());
+        this.setAltura(InputClass.in.nextFloat());
         System.out.println("Digite o idade");
-        this.setIdade(sc.nextInt());
+        this.setIdade(InputClass.in.nextInt());
         System.out.println("Digite o Endereco");
-        this.setEndereco(sc.nextLine());
-        sc.nextLine();
+        this.setEndereco(InputClass.in.nextLine());
         
     }
 
