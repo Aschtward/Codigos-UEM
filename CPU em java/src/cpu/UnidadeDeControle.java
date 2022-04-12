@@ -13,22 +13,22 @@ public class UnidadeDeControle {
 		ula = new ULA();
 		for(pc = 0; pc < mem.size();pc++) {
 			mar = mem.get(pc);//Armazena em mar a instrucao e a referencia de operandos
-			if(mar.length()  > 4) {
+			if(mar.length()  > 6) {
 				ir = mar.substring(0,4);//Armazena instrucao atual
 				ula.mbr = ir;//Passa para a Ula a instrucao
 				
 				if(mar.substring(4, 6).equals( "0f")) {//Passando endereco de memoria, Unidade de controle le memoria
-					int pos = Integer.parseInt(mar.substring(6,8));
+					int pos = Integer.parseInt(mar.substring(6,10));
 					ula.mq = mem.get(pos);//Passa os operandos para a ula
 				}else {
-					ula.mq = mar.substring(4,8);
+					ula.mq = mar.substring(4,10);
 				}
 				
-				if(mar.substring(8, 10).equals( "0f")) {//Passando endereco de memoria, Unidade de controle le memoria
-					int pos = Integer.parseInt(mar.substring(10,12));
+				if(mar.substring(10, 12).equals( "0f")) {//Passando endereco de memoria, Unidade de controle le memoria
+					int pos = Integer.parseInt(mar.substring(12,16));
 					ula.ac = mem.get(pos);//Passa os operandos para a ula
 				}else {
-					ula.ac = mar.substring(8,12);//Passa os operandos para a ula
+					ula.ac = mar.substring(10,16);//Passa os operandos para a ula
 				}
 				
 				ula.calculate();//Ula decodifica e opera dados.
