@@ -33,7 +33,7 @@ public class Grafos1 {
         
         ///Bellman Ford testes ////Para algoritmos com pesos nas arestas foi definido uma maneira diferente de criar arestas, visto q tem pesos
         //		TESTE 1			//
-        g.addAresta(0,1,6);
+        /*g.addAresta(0,1,6);
         g.addAresta(0,2,7);
         g.addAresta(1,4,5);
         g.addAresta(1,4,-4);
@@ -41,8 +41,8 @@ public class Grafos1 {
         g.addAresta(2,4,9);
         g.addAresta(2,3,-3);
         g.addAresta(3,1,-2);
-        g.addAresta(4,3,7);
-        b.Bellman_Ford(4, g);
+        g.addAresta(4,3,7);*/
+        //b.Bellman_Ford(4, g);
         
         
         //		TESTE 2		//
@@ -57,7 +57,7 @@ public class Grafos1 {
        /// Busca em largura testes //
         
         //		TESTE 1		//
-        v1.adj.add(v2);
+        /*v1.adj.add(v2);
         v1.adj.add(v3);
         v2.adj.add(v5);
         v2.adj.add(v3);
@@ -65,7 +65,7 @@ public class Grafos1 {
         v3.adj.add(v4);
         v4.adj.add(v2);
         v5.adj.add(v4);
-        b.buscaEmLargura(g.vertices[1],g);
+        b.buscaEmLargura(g.vertices[1],g);*/
         
         //		TESTE 2		//
         /*v1.adj.add(v4);
@@ -80,8 +80,8 @@ public class Grafos1 {
         /*v1.adj.add(v2);
         v1.adj.add(v3);
         v3.adj.add(v4);
-        v2.adj.add(v5);*/
-        b.Busca_em_profundidade(g);
+        v2.adj.add(v5);
+        b.Busca_em_profundidade(g,1);*/
         
         //		TESTE 2		//
         /*v1.adj.add(v4);
@@ -89,6 +89,44 @@ public class Grafos1 {
         v5.adj.add(v3);
         v4.adj.add(v2);
         b.Busca_em_profundidade(g);*/
+        
+       // Dijkstra  e Gaos//
+      //		Teste		//
+       /*g.addAresta(0, 1, 10);
+       g.addAresta(0, 2, 5);
+       g.addAresta(1, 2, 2);
+       g.addAresta(1, 3, 1);
+       g.addAresta(2, 1, 3);
+       g.addAresta(2, 3, 9);
+       g.addAresta(2, 4, 2);
+       g.addAresta(3, 4, 4);
+       g.addAresta(4, 3, 6);
+       g.addAresta(4, 0, 7);
+       //b.dijkstra(g);
+       //b.gaos(g);*/
+       
+        //Algoritmo de Floyd Warshall //
+      /*  g.addAresta(0, 2, 3);
+        g.addAresta(0, 3, 8);
+        g.addAresta(0, 4, 4);
+        g.addAresta(1, 4, 7);
+        g.addAresta(1, 3, 1);
+        g.addAresta(2, 1, 4);
+        g.addAresta(3, 2, 5);
+        g.addAresta(3, 0, 2);
+        g.addAresta(4, 3, 6);
+        b.floydWarshall(g);*/
+        
+        //Algoritmo de Ford Fukersson//
+        g.addAresta(0, 2, 100);
+        g.addAresta(0, 3, 50);
+        g.addAresta(2, 1, 50);
+        g.addAresta(2, 3, 50);
+        g.addAresta(2, 4, 50);
+        g.addAresta(3, 4, 100);
+        g.addAresta(4, 1, 125);
+        b.fordFokerson(g, 0, 1);
+        
     }
     
 }

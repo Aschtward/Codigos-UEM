@@ -21,4 +21,8 @@ public class Vertice {
     public String toString() {
         return "Vertice(" + num + ")";
     }
+    
+    public int getFim() {
+    	return this.fim;
+    }
 }

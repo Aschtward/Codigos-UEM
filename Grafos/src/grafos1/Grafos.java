@@ -19,6 +19,7 @@ public class Grafos {
 
     public void addAresta(int u, int v,int p) {
         Arestas a = new Arestas(u,v,p);
+        vertices[u].adj.add(vertices[v]);
         arestas.add(a);
     }
 }
