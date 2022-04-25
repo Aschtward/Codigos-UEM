@@ -252,6 +252,8 @@ public class Buscas {
 				}
 			}
 		}
+		System.out.println("");
+		System.out.println("-----------------Floyd Warshall-----------------");
 		for(int i = 0; i < g.vertices.length; i++) {
 			System.out.println("");
 			for(int j = 0; j < g.vertices.length; j++) {
@@ -260,7 +262,7 @@ public class Buscas {
 		}
 	}
 	
-	public void fordFokerson(Grafos g, int fonte, int sumidouro) {
+	public void fordFulkerson(Grafos g, int fonte, int sumidouro) {
 		buscarCaminho(g.vertices[fonte],g);//Setando caminhos
 		int[][] matrizArestas = geraMatriz(g);
 		int fluxomax = 0;
@@ -288,9 +290,9 @@ public class Buscas {
 			fluxomax += fluxomin;
 			buscarCaminho(g.vertices[fonte],g);//fazendo nova busca de caminho
 		}
+		System.out.println("");
+		System.out.println("-----------------Ford Fulkerson-----------------");
 		System.out.println("Fluxo maximo : " + fluxomax);
-		//Pessimo algoritmo devido a entrada de dados, como as arestas não estão diretamente ligados aos vertices é necessário fazer uma busca por elas
-		//isso adiciona dois laços com dois laços dentreo, ou seja o(A*V) como ocorre duas vezes o(2*A*E) somado ao tempo do 
 	}
 	
 	public void buscarCaminho(Vertice e, Grafos g) {//Busca em largura sem os sysout
@@ -320,5 +322,78 @@ public class Buscas {
                 u.cor = 2;
             }
         }
+	}
+
+	public void kruskal(Grafos g, Vertice v) {
+
+		List<Arestas> aresta = new ArrayList<Arestas>();
+		
+		g.arestas.sort(new Comparator<Arestas>() {//Organiza as arestas em ordem do menor peso para o maior peso
+			public int compare(Arestas a1, Arestas a2) {
+				if(a1.peso < a2.peso)
+					return -1;
+				else 
+					return +1;
+			}
+		});
+
+		for(Arestas a: g.arestas) {//Percorre todas as arestas
+			if(g.vertices[a.fim].cor == 0) {//Verifica se o vertice não foi visitado ainda
+				g.vertices[a.fim].cor = 1;//Indica que o vertice foi visitado e esta na arvore
+				aresta.add(a);//Adiciona a aresta a cojunto de arestas da MST
+			}
+		}
+		
+		aresta.sort(new Comparator<Arestas>() {//Organiza as arestas em ordem de vertices
+			public int compare(Arestas a1, Arestas a2) {
+				if(a1.inicio < a2.inicio)
+					return -1;
+				else
+					return +1;
+			}
+		});
+		System.out.println("-----------------Kruskal-----------------");
+		for(Arestas a: aresta) {//Imprime arvore
+			System.out.println("Aresta " + a.inicio + " -> " + a.fim + " Peso " + a.peso);
+		}
+	}
+
+	public void prim(Grafos g,Vertice r) {
+		int[][] matriz = geraMatriz(g);//Matriz com os pesos
+		
+		for(Vertice u: g.vertices) {//Iniciando vertices
+			u.d = Integer.MAX_VALUE;
+			u.pai = null;
+		}
+		r.d = 0;//Iniciando primeiro vertice
+		
+		List<Vertice> vertices = new ArrayList<Vertice>();//Criando lista de prioridade
+		Collections.addAll(vertices, g.vertices);
+		vertices.sort(new Comparator<Vertice>() {//Organizando lista com base nas distancias
+			public int compare(Vertice v1, Vertice v2) {
+				if(v1.d < v2.d)
+					return -1;
+				else return +1;
+			}
+		});
+		
+		while(vertices.size() != 0) {
+			Vertice u = vertices.get(0);
+			vertices.remove(u);
+			for(Vertice v: u.adj) {
+				if(vertices.contains(v) && matriz[u.num][v.num] < v.d) {
+					v.pai = u;
+					v.d = matriz[u.num][v.num];
+				}
+			}
+			
+		}
+		
+		System.out.println("----------------- PRIM -----------------");
+		
+		for(Vertice v: g.vertices) {
+			if(v.pai != null)
+				System.out.println(v.pai.num + " -> " + v.num + "  Peso " + v.d);
+		}
 	}
 }

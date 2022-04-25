@@ -8,7 +8,9 @@ package grafos1;
 /**
  *
  * @author Leonardo Ribeiro Goulart
- *	Para testar tire a expressão de comentário de algum teste
+ *	OBS: testes foram realizados usando os exemplos visto em sala, todos os grafos testados são orientados;
+ *	caso queria realizar mais testes basta: criar uma nova variável do tipo Grafos, adicionar arestas pelo metodo addAresta(inicio da aresta, fim da aresta, peso);
+ *  o algoritmo está sendo postado no meu repositório do github, é possível acessar em: https://github.com/Aschtward/Codigos-UEM/tree/main/Grafos/src/grafos1
  */
 public class Grafos1 {
 
@@ -16,116 +18,119 @@ public class Grafos1 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Grafos g = new Grafos(5);
-        
-        Vertice v1 = new Vertice(0);
-        Vertice v2 = new Vertice(1);
-        Vertice v3 = new Vertice(2);
-        Vertice v4 = new Vertice(3);
-        Vertice v5 = new Vertice(4);
-        g.vertices[0] = v1;
-        g.vertices[1] = v2;
-        g.vertices[2] = v3;
-        g.vertices[3] = v4;
-        g.vertices[4] = v5;
-        
         Buscas b = new Buscas();
         
-        ///Bellman Ford testes ////Para algoritmos com pesos nas arestas foi definido uma maneira diferente de criar arestas, visto q tem pesos
+        ///Bellman Ford testes ////
         //		TESTE 1			//
-        /*g.addAresta(0,1,6);
-        g.addAresta(0,2,7);
-        g.addAresta(1,4,5);
-        g.addAresta(1,4,-4);
-        g.addAresta(1,2,8);
-        g.addAresta(2,4,9);
-        g.addAresta(2,3,-3);
-        g.addAresta(3,1,-2);
-        g.addAresta(4,3,7);*/
-        //b.Bellman_Ford(4, g);
+        Grafos g2 = new Grafos(10);
+        g2.addAresta(0,1,6);
+        g2.addAresta(0,2,7);
+        g2.addAresta(1,4,5);
+        g2.addAresta(1,4,-4);
+        g2.addAresta(1,2,8);
+        g2.addAresta(2,4,9);
+        g2.addAresta(2,3,-3);
+        g2.addAresta(3,1,-2);
+        g2.addAresta(4,3,7);
+        b.Bellman_Ford(4, g2);
         
         
         //		TESTE 2		//
-      /*g.addAresta(0,2,1);
-        g.addAresta(1,2,10);
-        g.addAresta(1,3,2);
-        g.addAresta(2,4,1);
-        g.addAresta(4,3,1);
-        g.addAresta(3,4,1);
-        b.Bellman_Ford(3, g);*/
+        Grafos g3 = new Grafos(11);
+        g3.addAresta(0,2,1);
+        g3.addAresta(1,2,10);
+        g3.addAresta(1,3,2);
+        g3.addAresta(2,4,1);
+        g3.addAresta(4,3,1);
+        g3.addAresta(3,4,1);
+        b.Bellman_Ford(3, g3);
         
        /// Busca em largura testes //
         
         //		TESTE 1		//
-        /*v1.adj.add(v2);
-        v1.adj.add(v3);
-        v2.adj.add(v5);
-        v2.adj.add(v3);
-        v3.adj.add(v5);
-        v3.adj.add(v4);
-        v4.adj.add(v2);
-        v5.adj.add(v4);
-        b.buscaEmLargura(g.vertices[1],g);*/
-        
-        //		TESTE 2		//
-        /*v1.adj.add(v4);
-        v1.adj.add(v5);
-        v5.adj.add(v3);
-        v4.adj.add(v2);
-        b.buscaEmLargura(g.vertices[0],g);*/
+        Grafos g4 = new Grafos(6);
+        g4.addAresta(0,1,0);
+        g4.addAresta(0,2,0);
+        g4.addAresta(1,4,0);
+        g4.addAresta(1,2,0);
+        g4.addAresta(2,4,0);
+        g4.addAresta(2,3,0);
+        g4.addAresta(3,1,0);
+        g4.addAresta(4,3,0);
+        b.buscaEmLargura(g4.vertices[1],g4);
         
         /// Busca em profundidade testes  //
         
         //		TESTE 1		//
-        /*v1.adj.add(v2);
-        v1.adj.add(v3);
-        v3.adj.add(v4);
-        v2.adj.add(v5);
-        b.Busca_em_profundidade(g,1);*/
+        Grafos g5 = new Grafos(6);
+        g5.addAresta(0,2,0);
+        g5.addAresta(0,2,0);
+        g5.addAresta(2,4,0);
+        g5.addAresta(1,4,0);
+        b.Busca_em_profundidade(g5,1);
         
-        //		TESTE 2		//
-        /*v1.adj.add(v4);
-        v1.adj.add(v5);
-        v5.adj.add(v3);
-        v4.adj.add(v2);
-        b.Busca_em_profundidade(g);*/
         
        // Dijkstra  e Gaos//
       //		Teste		//
-       /*g.addAresta(0, 1, 10);
-       g.addAresta(0, 2, 5);
-       g.addAresta(1, 2, 2);
-       g.addAresta(1, 3, 1);
-       g.addAresta(2, 1, 3);
-       g.addAresta(2, 3, 9);
-       g.addAresta(2, 4, 2);
-       g.addAresta(3, 4, 4);
-       g.addAresta(4, 3, 6);
-       g.addAresta(4, 0, 7);
-       //b.dijkstra(g);
-       //b.gaos(g);*/
+       Grafos g6 = new Grafos(5);
+       g6.addAresta(0, 1, 10);
+       g6.addAresta(0, 2, 5);
+       g6.addAresta(1, 2, 2);
+       g6.addAresta(1, 3, 1);
+       g6.addAresta(2, 1, 3);
+       g6.addAresta(2, 3, 9);
+       g6.addAresta(2, 4, 2);
+       g6.addAresta(3, 4, 4);
+       g6.addAresta(4, 3, 6);
+       g6.addAresta(4, 0, 7);
+       b.gaos(g6);
+       b.dijkstra(g6);
        
         //Algoritmo de Floyd Warshall //
-      /*  g.addAresta(0, 2, 3);
-        g.addAresta(0, 3, 8);
-        g.addAresta(0, 4, 4);
-        g.addAresta(1, 4, 7);
-        g.addAresta(1, 3, 1);
-        g.addAresta(2, 1, 4);
-        g.addAresta(3, 2, 5);
-        g.addAresta(3, 0, 2);
-        g.addAresta(4, 3, 6);
-        b.floydWarshall(g);*/
+        Grafos g9 = new Grafos(5);
+        g9.addAresta(0, 2, 3);
+        g9.addAresta(0, 3, 8);
+        g9.addAresta(0, 4, 4);
+        g9.addAresta(1, 4, 7);
+        g9.addAresta(1, 3, 1);
+        g9.addAresta(2, 1, 4);
+        g9.addAresta(3, 2, 5);
+        g9.addAresta(3, 0, 2);
+        g9.addAresta(4, 3, 6);
+        b.floydWarshall(g9);
         
         //Algoritmo de Ford Fukersson//
-        g.addAresta(0, 2, 100);
-        g.addAresta(0, 3, 50);
-        g.addAresta(2, 1, 50);
-        g.addAresta(2, 3, 50);
-        g.addAresta(2, 4, 50);
-        g.addAresta(3, 4, 100);
-        g.addAresta(4, 1, 125);
-        b.fordFokerson(g, 0, 1);
+        Grafos g7 = new Grafos(6);
+        g7.addAresta(0, 1, 16);
+        g7.addAresta(0, 2, 13);
+        g7.addAresta(1, 3, 12);
+        g7.addAresta(2, 1, 4);
+        g7.addAresta(2, 4, 14);
+        g7.addAresta(3, 2, 9);
+        g7.addAresta(3, 5, 20);
+        g7.addAresta(4, 3, 7);
+        g7.addAresta(4, 5, 4);
+        b.fordFulkerson(g7, 0, 5);
+        
+        //Algoritmo de prin//
+        
+        Grafos g8 = new Grafos(12); 
+        g8.addAresta(0, 1, 4);
+        g8.addAresta(0, 2, 1);
+        g8.addAresta(1, 2, 11);
+        g8.addAresta(1, 3, 8);
+        g8.addAresta(2, 4, 7);
+        g8.addAresta(2, 5, 1);
+        g8.addAresta(3, 4, 2);
+        g8.addAresta(3, 6, 7);
+        g8.addAresta(3, 7, 4);
+        g8.addAresta(4, 5, 6);
+        g8.addAresta(5, 7, 2);
+        g8.addAresta(6, 7, 14);
+        g8.addAresta(6, 8, 9);
+        g8.addAresta(7, 8, 10);
+        b.kruskal(g8, g8.vertices[0]);
+        b.prim(g8, g8.vertices[0]);
         
     }
     
